@@ -1,0 +1,50 @@
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(LEDR, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+  pinMode(LEDB, OUTPUT);
+
+  // Turn all LEDs off (active LOW)
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, HIGH);
+
+  Serial.println("Type R, G, B, W, or O:");
+}
+
+void loop() {
+  if (Serial.available()) {
+    char cmd = toupper(Serial.read());
+
+    // Turn all LEDs off first
+    digitalWrite(LEDR, HIGH);
+    digitalWrite(LEDG, HIGH);
+    digitalWrite(LEDB, HIGH);
+
+    if (cmd == 'R') {
+      digitalWrite(LEDR, LOW);
+      Serial.println("Red ON");
+    }
+    else if (cmd == 'G') {
+      digitalWrite(LEDG, LOW);
+      Serial.println("Green ON");
+    }
+    else if (cmd == 'B') {
+      digitalWrite(LEDB, LOW);
+      Serial.println("Blue ON");
+    }
+    else if (cmd == 'W') {
+      digitalWrite(LEDR, LOW);
+      digitalWrite(LEDG, LOW);
+      digitalWrite(LEDB, LOW);
+      Serial.println("White (RGB) ON");
+    }
+    else if (cmd == 'O') {
+      Serial.println("All LEDs OFF");
+    }
+  }
+}
+
+output
+https://drive.google.com/file/d/1nXEO_HphI0tlS5Fg7w14fJsoEmR1c28T/view?usp=drive_link
