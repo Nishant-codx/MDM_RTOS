@@ -8,7 +8,7 @@ void setup() {
   while (!Serial);
 
   Serial.println("Hello World!");
-  Serial.println("Name: Sanjyoti Gaikwad");
+  Serial.println("Name:Nishant");
 }
 
 void loop() {
